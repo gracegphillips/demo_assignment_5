@@ -24,11 +24,8 @@ def loan_detail(loan_info_id):
         loan_term_months = loan_term_years * 12  # Convert loan term to months
         monthly_interest_rate = interest_rate / 12 / 100  # Calculate monthly interest rate
 
-        # Calculate the monthly payment
-        if monthly_interest_rate > 0:
-            monthly_payment = loan_amount * (monthly_interest_rate / (1 - (1 + monthly_interest_rate) ** -loan_term_months))
-        else:
-            monthly_payment = loan_amount / loan_term_months  # Handle no interest case
+        # call the loan_amortization function to get the monthly payment
+        monthly_payment = loan_amortization(monthly_interest_rate, loan_term_months, loan_amount)
 
         # Create a list to store the loan amortization details
         loan_amortization_list = []
