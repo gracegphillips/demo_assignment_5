@@ -26,27 +26,4 @@ def calculate_amortization(loan_amount, interest_rate, loan_term_years):
         monthly_payment = loan_amount * (monthly_interest_rate / (1 - (1 + monthly_interest_rate) ** -loan_term_months))
     else:
         monthly_payment = loan_amount / loan_term_months
-
-    # Create a list to store the loan amortization details
-    loan_amortization_list = []
-
-    # Loop to calculate the loan amortization details for each month
-    for i in range(1, loan_term_months + 1):
-        interest_paid = loan_amount * monthly_interest_rate  # Calculate interest paid for the current month
-        principal_paid = monthly_payment - interest_paid  # Calculate principal paid
-        remaining_balance = loan_amount - principal_paid  # Calculate remaining balance after payment
-
-        # Append the details for the current month
-        loan_amortization_list.append({
-            'month': i,
-            'starting_balance': loan_amount,
-            'interest_paid': interest_paid,
-            'principal_paid': principal_paid,
-            'monthly_payment': monthly_payment,
-            'remaining_balance': remaining_balance
-        })
-
-        # Update the loan amount for the next month
-        loan_amount = remaining_balance
-
-    return monthly_payment, loan_amortization_list
+    return monthly_payment
