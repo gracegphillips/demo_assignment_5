@@ -27,3 +27,6 @@ def calculate_amortization(loan_amount, interest_rate, loan_term_years):
     else:
         monthly_payment = loan_amount / loan_term_months
     return monthly_payment
+
+def calculate_monthly_interest_rate(interest_rate):
+    return interest_rate / 12 / 100

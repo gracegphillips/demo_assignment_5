@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, redirect, flash
 from app.db_connect import get_db
 from ..functions import calculate_amortization
+from ..functions import calculate_monthly_interest_rate
 
 loan_amortization_detail = Blueprint('loan_amortization_detail', __name__)
 
@@ -21,6 +22,7 @@ def loan_detail(loan_info_id):
 
     # Call the calculate_amortization function to get the monthly payment
     monthly_payment = calculate_amortization(loan_amount, interest_rate, loan_term_months)
+    monthly_interest_rate = calculate_monthly_interest_rate(interest_rate)
 
     # Create a list to store the loan amortization details
     loan_amortization_list = []
