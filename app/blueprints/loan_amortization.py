@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, url_for, redirect, flash
 from app.db_connect import get_db
-from ..functions import calculate_amortization
 
 
 loan_amortization = Blueprint('loan_amortization', __name__)
@@ -17,8 +16,6 @@ def loan():
         term_years = float(request.form['term_years'])
         interest_rate = int(request.form['interest_rate'])
 
-        # Call the function
-        monthly_payment = calculate_amortization(loan_amount, interest_rate, loan_term_years)
 
         # Insert the new loan info into the database
         cursor.execute('INSERT INTO loan_info (loan_amount, term_years, interest_rate) VALUES (%s, %s, %s)', (loan_amount, term_years, interest_rate))
