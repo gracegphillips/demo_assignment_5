@@ -16,11 +16,11 @@ def loan_detail(loan_info_id):
     # Convert the fetched data to the appropriate types
     loan_amount = float(loan_data['loan_amount'])  # Convert loan_amount from Decimal to float
     interest_rate = float(loan_data['interest_rate'])  # Convert interest_rate from Decimal to float
-    loan_term_years = int(loan_data['term_years'])  # Convert loan_term_years to int
+    loan_term_months = int(loan_data['term_years'])  # Convert loan_term_moths to int
 
 
     # Call the calculate_amortization function to get the monthly payment
-    monthly_payment = calculate_amortization(loan_amount, interest_rate, loan_term_years)
+    monthly_payment = calculate_amortization(loan_amount, interest_rate, loan_term_months)
 
     # Create a list to store the loan amortization details
     loan_amortization_list = []
